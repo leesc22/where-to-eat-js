@@ -11,7 +11,7 @@ function getRandomHex() {
 
 function displayRestaurant() {
 	// create restaurant list
-	restaurantArray = ['Meet Mee', 'Surawon', 'Sushi Zanmai', 'Klang Teluk Pulai Bat Kut Teh', 'Dim Sum']
+	restaurantArray = ['Meet Mee', 'Surawon', 'Sushi Zanmai', 'Klang Teluk Pulai Bat Kut Teh', 'Dim Sum stall', 'Mixed Rice stall', 'Nasi Kukus stall', 'Rojak stall']
 	arrayLength = restaurantArray.length;
 	randInt = getRandomInt(0, arrayLength);
 	console.log(randInt);
@@ -30,12 +30,17 @@ function startDisplayRestaurant() {
 	chosenRestaurant.innerHTML = "";
 	
   // display list of restaurant in interval
-  timer = setInterval(displayRestaurant, 1000);
+  timer = setInterval(displayRestaurant, 500);
 }
 
 function getRestaurant() {
   // stop timer
   clearInterval(timer);
+
+  // display sentence
+  restaurant = document.getElementById('restaurant').innerHTML 
+  chosenRestaurant = document.getElementById('chosen-restaurant');
+	chosenRestaurant.innerHTML = "Great, let's go to " + restaurant + " !";
 }
 
 function addRestaurantListener(){
