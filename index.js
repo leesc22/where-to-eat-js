@@ -4,15 +4,24 @@ function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function getRandomHex() {
+	// 16777215 == ffffff in decimal
+	return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
+
 function displayRestaurant() {
 	// create restaurant list
 	restaurantArray = ['Meet Mee', 'Surawon', 'Sushi Zanmai', 'Klang Teluk Pulai Bat Kut Teh', 'Dim Sum']
 	arrayLength = restaurantArray.length;
-	rand = getRandomInt(0, arrayLength);
+	randInt = getRandomInt(0, arrayLength);
+	console.log(randInt);
+  randHex = getRandomHex();
+  console.log(randHex);
 
-  // display restaurant
+  // display restaurant in random order and random color
   restaurant = document.getElementById('restaurant')
-  restaurant.innerHTML = restaurantArray[rand]	
+  restaurant.innerHTML = restaurantArray[randInt]	
+  restaurant.style.color = randHex;
 }
 
 function startDisplayRestaurant() {
@@ -21,7 +30,11 @@ function startDisplayRestaurant() {
 	chosenRestaurant.innerHTML = "";
 	
   // display list of restaurant in interval
-  var startTimer = setInterval(displayRestaurant, 2000);
+  var startTimer = setInterval(displayRestaurant, 1000);
+}
+
+function getRestaurant() {
+
 }
 
 function addRestaurantListener(){
@@ -33,7 +46,7 @@ function addRestaurantListener(){
   getBtn = document.getElementById('get-restaurant-button');
   
   // Replace 'functionName' with the name of the function that you have written
-  getBtn.addEventListener("click", functionName);
+  getBtn.addEventListener("click", getRestaurant);
 }
 
 // wait for DOM content to load before binding an event
