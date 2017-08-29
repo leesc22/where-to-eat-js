@@ -30,14 +30,17 @@ function startDisplayRestaurant() {
 	chosenRestaurant.innerHTML = "";
 	
   // display list of restaurant in interval
-  var startTimer = setInterval(displayRestaurant, 1000);
+  timer = setInterval(displayRestaurant, 1000);
 }
 
 function getRestaurant() {
-
+  // stop timer
+  clearInterval(timer);
 }
 
 function addRestaurantListener(){
+  var timer;
+
   startBtn = document.getElementById('start-random-button');
   
   // Replace 'functionName' with the name of the function that you have written
